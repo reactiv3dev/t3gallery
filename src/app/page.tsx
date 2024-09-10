@@ -1,5 +1,5 @@
- 
-
+import { db } from "~/server/db";
+export const dynamic = "force-dynamic";
 
 const mockUrls = [
   "https://utfs.io/f/2898460f-d5db-480e-80eb-37b208f1a7c6-f7d0w0.jpg",
@@ -14,11 +14,17 @@ const mockImages = mockUrls.map((url, i) => ({
   url,
 }))
 
-export default function HomePage() {
+export default async function HomePage() {
+  const  posts = await db.query.posts.findMany();
+
   return (
     <main className="flex mt-12 min-h-screen w-full flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
       <h1 className="text-2xl font-semibold m-5">Hello (gallery in progress)</h1>
       <div className="w-full flex flex-wrap items-center justify-center gap-4 ">
+        {
+          posts.map((post, i) => (
+            <div key={i}>{post.name}</div>))
+        }
         {
           [...mockImages].map((image) => (
             <div key={image.id} className="w-96">
