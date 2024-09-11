@@ -1,7 +1,15 @@
 import "~/styles/globals.css";
-
+import {
+  ClerkProvider,
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import TopNav from "./_components/top-nav";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -9,26 +17,21 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-function TopNav(){
-  return (
-    <nav className="w-full h-14 fixed flex flex-row items-center justify-between bg-[#2e026d] text-white text-xl font-semibold p-5">
-      <h1>T3Gallery</h1>
-      <div>Welcome</div>
-      <div>SignIn</div>
-    </nav>
-  )
-}
+ 
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-       
-      <body className="flex w-full h-full flex-col">
-        <TopNav/>
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`${GeistSans.variable}`}>
+
+        <body className="flex w-full h-full flex-col">
+          <TopNav/>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
+    
   );
 }
