@@ -26,6 +26,14 @@ export async function getMyImages(){
     return images;
 }
 
+export async function getImageByImageId(imageId: number){
+    const  images = await db.query.images.findFirst({
+        where: (image, { eq }) => eq(image.id, imageId)
+    })
+
+    return images;
+}
+
 export async function getImagesByUser(userId: string){
     const  images = await db.query.images.findMany({
         orderBy: (image,{desc}) => desc(image.createdAt)

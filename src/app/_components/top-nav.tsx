@@ -5,6 +5,8 @@ import { UploadButton } from "~/vendor/uploadthing/components/upload";
 
 export default function TopNav(){
     const router= useRouter();
+
+     
     return (
       <nav className="w-full h-20 fixed flex flex-row items-center justify-between bg-[#2e026d] text-white text-xl font-semibold p-5">
         <h1>T3Gallery</h1>
