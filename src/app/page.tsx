@@ -16,7 +16,7 @@ async function Images(){
          {
            images?.map((image) => (
              <div key={image.id} className="w-96 flex flex-col items-center">
-               <Link href={`/photo/${image.id}`}> 
+               <Link href={`/img/${image.id}`}> 
                <Image src={image.url} style={{ objectFit: "contain"}} width={384} height={384}  alt={image.name}   />
                </Link>
                <span>{image.name}</span>
@@ -38,7 +38,7 @@ async function MyImages(){
          {
            images?.map((image) => (
              <div key={image.id} className="w-96 flex flex-col items-center">
-              <Link href={`/photo/${image.id}`}> 
+              <Link href={`/img/${image.id}`}> 
                <Image src={image.url} style={{ objectFit: "contain"}} width={384} height={384}  alt={image.name}   />
                </Link>
                <span>{image.name}</span>
