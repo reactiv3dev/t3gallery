@@ -7,8 +7,10 @@
 - [x] Tidy up build process
 - [x] Setup real database (vercel/neon)
 - [x] Attach database to UI 
-- [ ] Add authentication (w/ clerk)
-- [ ] Add image upload
+- [x] Add authentication (w/ clerk)
+- [x] Add image upload
+- [ ] "taint" (server-only)
+- [ ] Use Next/Image component
 - [ ] Error management (w/Sentry)
 - [ ] Routing/image page (parallel route)
 - [ ] Delete button (w/ Server Actions)
